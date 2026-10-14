@@ -1,0 +1,70 @@
+# ================= ArcLogin =================
+settings:
+  min-password-length: 6
+  login-timeout-seconds: 60      # tiempo para loguearse antes de ser expulsado
+  max-login-attempts: 3
+  session-minutes: 10            # 0 = desactivar. Si reconecta con la misma IP no pide login
+  reminder-seconds: 10
+
+spawn:
+  # /setloginspawn  -> donde esperan los jugadores antes de iniciar sesion
+  # /setregisterspawn -> donde aparecen la PRIMERA vez que se registran
+  return-to-last-location: true   # tras /login vuelven a donde estaban (si no es su primer registro)
+
+premium:
+  # Una cuenta premium se detecta cuando el UUID es de Mojang (version 4).
+  # Esto SOLO pasa si el servidor corre en online-mode=true, o detras de un
+  # proxy (BungeeCord/Velocity) en online-mode, o con un plugin tipo FastLogin.
+  # En un servidor offline "puro" NO se puede verificar y todos entran como no premium.
+  auto-login-verified: true
+  # Si un nombre esta marcado como premium (/premium) y alguien entra con ese
+  # nombre SIN estar verificado por Mojang, se le expulsa (evita suplantacion).
+  # Ponlo en false si tu servidor no puede verificar premium.
+  require-verified: false   # servidor offline independiente: dejar en false
+  # Marcar automaticamente como premium a quien entre verificado por Mojang.
+  auto-mark-verified: true
+
+messages:
+  prefix: "&8[&bArcLogin&8] &7"
+  not-logged: "&cDebes iniciar sesion primero."
+  join-register: "&eBienvenido! Registrate con &f/register <contraseña> <contraseña>&e. Si tienes cuenta original usa &f/premium&e."
+  join-login: "&eIniciaste antes? Usa &f/login <contraseña>&e."
+  premium-auto: "&aCuenta premium verificada. Sesion iniciada automaticamente."
+  session-auto: "&aSesion restaurada automaticamente."
+  timeout-kick: "&cTiempo agotado para iniciar sesion."
+  premium-kick: "&cEsta cuenta esta registrada como &6PREMIUM&c.\n&7Entra con tu cuenta original de Minecraft."
+  too-many-attempts: "&cDemasiados intentos fallidos."
+  register-usage: "&cUso: /register <contraseña> <repetir contraseña>"
+  register-done: "&aRegistrado e inicio de sesion correcto. Bienvenido!"
+  register-already: "&cYa estas registrado. Usa /login <contraseña>."
+  register-mismatch: "&cLas contraseñas no coinciden."
+  register-short: "&cLa contraseña debe tener al menos {min} caracteres."
+  register-premium: "&cEres premium, no necesitas registrarte."
+  login-usage: "&cUso: /login <contraseña>"
+  login-done: "&aSesion iniciada. Bienvenido de vuelta!"
+  login-wrong: "&cContraseña incorrecta. Intentos restantes: {left}"
+  login-not-registered: "&cNo estas registrado. Usa /register <contraseña> <contraseña>."
+  login-already: "&cYa has iniciado sesion."
+  premium-checking: "&7Comprobando tu cuenta con Mojang..."
+  premium-ok: "&aTu cuenta fue marcada como &6PREMIUM&a. Reconectate con tu cuenta original."
+  premium-already: "&eTu cuenta ya esta marcada como premium."
+  premium-not-found: "&cEse nombre no pertenece a una cuenta premium de Minecraft."
+  premium-error: "&cNo se pudo contactar con Mojang. Intenta mas tarde."
+  premium-kick-after: "&aCuenta marcada como premium.\n&7Reconectate usando tu cuenta original."
+  premium-ok-offline: "&aNombre comprobado en Mojang y marcado como premium. &7Como el servidor es offline, igual debes usar contraseña (/register)."
+  only-players: "&cSolo jugadores."
+  spawn-set-login: "&aSpawn de LOGIN guardado en tu posicion actual."
+  spawn-set-register: "&aSpawn de REGISTRO guardado en tu posicion actual."
+  spawn-deleted: "&aSpawn {type} eliminado."
+  spawn-none: "&cEse spawn no esta definido. Usa /setloginspawn o /setregisterspawn."
+  spawn-tp: "&aTeletransportado al spawn {type}."
+  cp-usage: "&cUso: /changepassword <actual> <nueva>"
+  cp-done: "&aContraseña cambiada correctamente."
+  cp-wrong: "&cLa contraseña actual es incorrecta."
+  cp-premium: "&cLas cuentas premium no usan contraseña."
+  no-permission: "&cNo tienes permiso."
+  reloaded: "&aConfiguracion recargada."
+  admin-usage: "&cUso: /arclogin <reload|unregister <j>|setpremium <j> <true|false>|setloginspawn|setregisterspawn|delspawn <login|register>|tpspawn <login|register>>"
+  admin-unregistered: "&aCuenta {player} eliminada."
+  admin-set: "&aPremium de {player} = {value}."
+  admin-unknown: "&cEse jugador no tiene cuenta."

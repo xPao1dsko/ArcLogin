@@ -1,0 +1,35 @@
+name: ArcLogin
+main: com.arc.arclogin.ArcLogin
+version: ${project.version}
+api-version: "1.21"
+author: Arc
+description: Sistema de login con soporte premium / no premium.
+commands:
+  register:
+    description: Registrarse (no premium).
+    usage: /register <contraseña> <repetir contraseña>
+    aliases: [reg]
+  login:
+    description: Iniciar sesión (no premium).
+    usage: /login <contraseña>
+    aliases: [l]
+  changepassword:
+    description: Cambiar tu contraseña.
+    usage: /changepassword <actual> <nueva>
+    aliases: [cp]
+  premium:
+    description: Marca tu cuenta como premium (original).
+    usage: /premium
+  arclogin:
+    description: Administración de ArcLogin.
+    usage: /arclogin <reload|unregister|setpremium|setloginspawn|setregisterspawn|delspawn|tpspawn>
+  setloginspawn:
+    description: Define donde esperan los jugadores antes de loguearse.
+    usage: /setloginspawn
+  setregisterspawn:
+    description: Define donde aparecen los jugadores al registrarse.
+    usage: /setregisterspawn
+permissions:
+  arclogin.admin:
+    description: Administrar ArcLogin.
+    default: op
